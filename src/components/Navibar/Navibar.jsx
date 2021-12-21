@@ -1,5 +1,5 @@
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, Router } from 'react-router-dom';
 import { Container, Navbar, Button, Nav, Modal, Form } from 'react-bootstrap';
 import { regContext } from '../../contexts/regContext';
@@ -8,6 +8,7 @@ import { regContext } from '../../contexts/regContext';
 const Navibar = () => {
     const {
         email,
+        user,
         setEmail,
         password,
         setPassword,
@@ -32,7 +33,7 @@ const Navibar = () => {
         handleShowModal();
         setRegModal(false);
     }
-
+     console.log('user' ,user);
     return (
 
         <div>
@@ -50,9 +51,17 @@ const Navibar = () => {
                     </Nav>
                     
                     <Nav>
-                        {/* <h4 style={{color: 'white'}}>{email}</h4> */}
-                        <Button onClick ={clickLogin}  autoFocus variant='primary' className='m-2' >Войти</Button>
-                        <Button onClick ={clickReg}  autoFocus variant='primary' className='m-2' >Регистрация</Button>
+                        {hasAccount ? (
+                            <Button onClick ={clickLogin}  autoFocus variant='primary' className='m-2' >Выйти</Button>
+
+                        ): (
+                           
+                            <div>
+                            <Button onClick ={clickLogin}  autoFocus variant='primary' className='m-2' >Войти</Button>
+                            <Button onClick ={clickReg}  autoFocus variant='primary' className='m-2' >Регистрация</Button>
+                            </div>             
+                       
+                       )}
                     </Nav>
                 </Navbar.Collapse>
                 </Container>
