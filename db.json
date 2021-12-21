@@ -1,0 +1,165 @@
+{
+  "products": [
+    {
+      "name": "  СНОУБОРД",
+      "desc": " K2 FIRST LITE",
+      "url": "https://sportexpert.kg/wp-content/uploads/2017/09/k2-FIRST-LITE-2022-300x300.png",
+      "price": "32000",
+      "id": 5
+    },
+    {
+      "name": "  СНОУБОРД ",
+      "desc": "K2 STANDART",
+      "url": "https://sportexpert.kg/wp-content/uploads/2021/11/k2-standart-2022-300x300.jpg",
+      "price": "29000",
+      "id": 6
+    },
+    {
+      "name": "  КРЕПЛЕНИЯ ДЛЯ СНОУБОРДА ",
+      "desc": "K2 CINCH TC",
+      "url": "https://sportexpert.kg/wp-content/uploads/2017/09/k2-CINCH-TC-black-2022-300x300.jpg",
+      "price": "20000",
+      "id": 7
+    },
+    {
+      "name": "  КРЕПЛЕНИЯ ДЛЯ СНОУБОРДА ",
+      "desc": "K2 INDY",
+      "url": "https://sportexpert.kg/wp-content/uploads/2017/09/k2-indy-black-2022-300x300.jpg",
+      "price": "19000",
+      "id": 8
+    },
+    {
+      "name": "  БОТИНКИ ДЛЯ СНОУБОРДА ",
+      "desc": "K2 LEWISTON",
+      "url": "https://sportexpert.kg/wp-content/uploads/2021/11/k2-LEWISTON-vert-2022-300x300.jpg",
+      "price": "15000",
+      "id": 9
+    },
+    {
+      "name": "  РЮКЗАК ",
+      "desc": "BCA STASH 20",
+      "url": "https://sportexpert.kg/wp-content/uploads/2021/12/BCA-STASH-20-kingfisher-green-2022-300x300.jpg",
+      "price": "5000",
+      "id": 10
+    },
+    {
+      "name": "  ГОРНОЛЫЖНАЯ МАСКА ",
+      "desc": "JULBO AEROSPACE S2-3",
+      "url": "https://sportexpert.kg/wp-content/uploads/2021/12/JULBO-AEROSPACE-noir-vert-2022-300x300.jpg",
+      "price": "3000",
+      "id": 11
+    },
+    {
+      "name": "  ГОРНОЛЫЖНЫЙ ШЛЕМ",
+      "desc": " JULBO BLADE",
+      "url": "https://sportexpert.kg/wp-content/uploads/2021/12/JULBO-BLADE-grey-gris-2022-300x300.jpg",
+      "price": "5000",
+      "id": 12
+    },
+    {
+      "name": "  ГОРНОЛЫЖНЫЙ ШЛЕМ ",
+      "desc": "JULBO PROMETHEE",
+      "url": "https://sportexpert.kg/wp-content/uploads/2021/12/JULBO-PROMETHEE-SKI-HELMET-black-red-2022-300x300.jpg",
+      "price": "8000",
+      "id": 13
+    },
+    {
+      "name": "  ГОРНЫЕ ЛЫЖИ ",
+      "desc": "DYNASTAR TEAM SPEED 130-150+XPRESS 7 GW B83",
+      "url": "https://sportexpert.kg/wp-content/uploads/2021/12/DYNASTAR-TEAM-SPEED-130-150XPRESS-7-GW-B83-black-2022-300x300.jpg",
+      "price": "21000",
+      "id": 14
+    },
+    {
+      "name": "  ГОРНЫЕ ЛЫЖИ ",
+      "desc": "DYNASTAR SPEED 363+XPRESS 11 GW B83",
+      "url": "https://sportexpert.kg/wp-content/uploads/2021/12/%D0%93%D0%9E%D0%A0%D0%9D%D0%AB%D0%95-%D0%9B%D0%AB%D0%96%D0%98-DYNASTAR-SPEED-363XPRESS-11-GW-B83-Black-Blue-2022-300x300.jpg",
+      "price": "45000",
+      "id": 15
+    },
+    {
+      "name": "  КРЕПЛЕНИЯ ДЛЯ ГОРНЫХ ЛЫЖ ",
+      "desc": "LOOK SPX 12 GW B120",
+      "url": "https://sportexpert.kg/wp-content/uploads/2021/12/LOOK-SPX-12-GW-B120-grey-oganic-2022-300x300.jpg",
+      "price": "7000",
+      "id": 16
+    },
+    {
+      "name": "  БОТИНКИ ДЛЯ ГОРНЫХ ЛЫЖ ",
+      "desc": "LANGE XT3 110 GW",
+      "url": "https://sportexpert.kg/wp-content/uploads/2021/12/LANGE-LANGE-XT3-110-GW-yellow-green-2022-300x300.jpg",
+      "price": "24000",
+      "id": 17
+    },
+    {
+      "name": "БОТИНКИ ДЛЯ ГОРНЫХ ЛЫЖ ",
+      "desc": "ROSSIGNOL COMP J3 ДЕТСКИЕ",
+      "url": "https://sportexpert.kg/wp-content/uploads/2021/12/ROSSIGNOL-COMP-JUNIOR-3-%D0%94%D0%95%D0%A2%D0%A1%D0%9A%D0%98%D0%95-black-2022-300x300.jpg",
+      "price": "9000",
+      "id": 18
+    },
+    {
+      "name": "  ГОРНЫЕ ЛЫЖИ ",
+      "desc": "K2 RECKONER 112",
+      "url": "https://sportexpert.kg/wp-content/uploads/2021/11/k2-reckoner-112-2022-300x300.jpg",
+      "price": "50000",
+      "id": 19
+    },
+    {
+      "name": "  ЛЫЖНЫЕ ПАЛКИ ",
+      "desc": "K2 POWER ALUMINIUM",
+      "url": "https://sportexpert.kg/wp-content/uploads/2021/11/K2-POWER-ALUMINIUM-black-2022-300x300.jpg",
+      "price": "1500",
+      "id": 20
+    },
+    {
+      "name": "  ГОРНОЛЫЖНЫЙ ШЛЕМ ",
+      "desc": "ALPINA ARBER VISOR",
+      "url": "https://sportexpert.kg/wp-content/uploads/2021/10/ALPINA-ARBER-VISOR-ink-matt-300x300.jpg",
+      "price": "12000",
+      "id": 21
+    },
+    {
+      "name": "ПЕРЧАТКИ ",
+      "desc": "CAIRN NORDEND2 M CT P",
+      "url": "https://sportexpert.kg/wp-content/uploads/2021/05/NORDEND2-M-CT-P-Black-Patriot-300x300.jpg",
+      "price": "1200",
+      "id": 22
+    },
+    {
+      "name": "ПЕРЧАТКИ",
+      "desc": "CAIRN KAILASH 2 M C-TEX PRO",
+      "url": "https://sportexpert.kg/wp-content/uploads/2021/05/KAILASH-2-M-C-TEX-PRO-Camel-Black-300x300.jpg",
+      "price": "3000",
+      "id": 23
+    },
+    {
+      "name": "КУРТКА МУЖСКАЯ ",
+      "desc": "DESCENTE SWISS TEAM REPLICA JACKET",
+      "url": "https://sportexpert.kg/wp-content/uploads/2019/02/616aiAP0t4L._SL1000_-300x300.jpg",
+      "price": "34000",
+      "id": 24
+    },
+    {
+      "name": " СКИДКА  ШТАНЫ МУЖСКИЕ ",
+      "desc": "DESCENTE SWISS PANT",
+      "url": "https://sportexpert.kg/wp-content/uploads/2019/01/D8_8124_93-300x300.jpg",
+      "price": "14000",
+      "id": 25
+    },
+    {
+      "name": "  КУРТКА ЖЕНСКАЯ MAIER ALBONA W JKT",
+      "desc": "MAIER ALBONA W JKT",
+      "url": "https://sportexpert.kg/wp-content/uploads/2018/12/a149cea72d94e6736925b76a6deaf586-300x300.jpg",
+      "price": "23000",
+      "id": 26
+    },
+    {
+      "name": "  ШТАНЫ ЖЕНСКИЕ ",
+      "desc": "MAIER DAMMKAR W PANT",
+      "url": "https://sportexpert.kg/wp-content/uploads/2018/12/94382815A_maier_dammkar_hose_damen_skydiver-300x300.jpg",
+      "price": "12000",
+      "id": 27
+    }
+  ]
+}
