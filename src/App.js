@@ -9,12 +9,13 @@ import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
 import Shop from './components/Shop/Shop';
-import RegContextProvider from './contexts/regContext';
+import AuthContextProvider from './contexts/authContext';
+import Auth from './components/Auth/Auth';
 
 const App = () => {
   return (
     <div>
-      <RegContextProvider>
+      <AuthContextProvider>
         <ProductsContextProvider>
           <BrowserRouter>
             <Navibar/>
@@ -22,11 +23,12 @@ const App = () => {
               <Routes>
                 <Route path='/' element={<Main/>}/>
                 <Route path='/shop' element={<Shop/>}/>
+                <Route path='/auth' element={<Auth/>}/>
               </Routes>
             <Footer/>
           </BrowserRouter>
         </ProductsContextProvider>
-      </RegContextProvider>
+      </AuthContextProvider>
     </div>
   );
 };

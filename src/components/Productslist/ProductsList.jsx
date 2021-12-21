@@ -3,12 +3,13 @@ import { Card, Button } from 'react-bootstrap';
 import { productsContext } from '../../contexts/productsContext';
 import { HiOutlineShoppingCart, HiOutlineTrash, HiOutlinePencil, HiOutlineHeart, HiOutlineChatAlt } from "react-icons/hi";
 import "./ProductsList.css"
-import { regContext } from '../../contexts/regContext';
+import { useAuth } from '../../contexts/authContext';
 
 
 const ProductsList = ({productToEdit, products}) => {
-    const { deleteProduct, updateProducts,} = useContext(productsContext);
-    const {email} = useContext(regContext);
+    const { deleteProduct } = useContext(productsContext);
+    const { user: { email } } = useAuth();
+    
     console.log('email' ,email);
     return (
         <div  className=' container d-flex flex-wrap justify-content-evenly '>
@@ -21,10 +22,10 @@ const ProductsList = ({productToEdit, products}) => {
                         <Card.Text>{item.desc}</Card.Text>
                         <Card.Text>{item.price+" сом"}</Card.Text>
                         <div className='d-flex justify-content-evenly'>
-                            {email ? (
+                            {email==="bahtiyar@mail.com" ? (
                                 <span onClick={()=>productToEdit(item)} style={{cursor:'pointer'}}><HiOutlinePencil size='25px'/></span>
                                 ) : (null)}
-                            {email ? (
+                            {email==="bahtiyar@mail.com" ? (
                                 <span onClick={()=>deleteProduct(item.id)} style={{cursor:'pointer'}}><HiOutlineTrash size='25px'/></span>
                             ): (null)}    
                             <HiOutlineChatAlt className='icons' size='25px'/>

@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { Form, Modal, Button } from 'react-bootstrap';
 import { productsContext } from '../../contexts/productsContext';
+import { useAuth } from '../../contexts/authContext';
 
 const ModalInput = ({show, handleClose, handleShow, product, setProduct, idEdit}) => {
    
     const {createProduct, updateProducts} = useContext(productsContext);  
+    const { user: { email } } = useAuth();
   
     function handleValues(e){
         let newProduct = {
@@ -41,7 +43,9 @@ const ModalInput = ({show, handleClose, handleShow, product, setProduct, idEdit}
     }
     return (
         <div>
-             <Button onClick = {showModal} className='btn btn-success'>Добавить</Button>
+             {email==='bahtiyar@mail.com' ? (
+                 <Button onClick = {showModal} className='btn btn-success'>Добавить</Button>
+             ): null }
              <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Данные товара</Modal.Title>

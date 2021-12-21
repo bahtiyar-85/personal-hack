@@ -9,6 +9,7 @@ import { Slider } from '@mui/material';
 import Pagination from '@mui/material/Pagination';
 
 
+
 const Shop = () => {
     const { getProducts, products, productsTotalCount} = useContext(productsContext)
     const [show, setShow] = useState(false);
@@ -19,7 +20,8 @@ const Shop = () => {
         url:'',
         price:'',
       })
-
+    
+    
     const [searchParams, setSearchParams] = useSearchParams();
     const [search, setSearch] = useState(
         searchParams.get("q") ? searchParams.get("q") : ""
@@ -78,39 +80,42 @@ const Shop = () => {
         setPage(value);
       };
     return (
-        <div className='container'>
-           <div className='d-flex justify-content-center'>
-                <div className='d-flex justify-content-center align-items-center m-2' style={{width: '50vw'}}>
-                    <ModalInput show={show} handleClose={handleClose} handleShow={handleShow} product={product} setProduct={setProduct} idEdit={idEdit}/>
-                    <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Введите объект поиска " className="me-2 col-4 form-control" />   
-                    {/* <Button variant="warning">Поиск</Button>            */}
-                </div>
-                
-            </div>
+        <div style={{backgroundColor:'#e9e9e9'}}>
+            <div className='container' >
             <div className='d-flex justify-content-center'>
-                <Box sx={{ width: 300}}>
-                    <Slider
-                        getAriaLabel={() => 'Price change'}
-                        value={price}
-                        min={1}
-                        max={100000}
-                        step={100}
-                        onChange={handleSliderChange}
-                        valueLabelDisplay="auto"
-                        // getAriaValueText={price}
-                    />
-                </Box>
+                    <div className='d-flex justify-content-center align-items-center m-2' style={{width: '50vw'}}>
+                        <ModalInput show={show} handleClose={handleClose} handleShow={handleShow} product={product} setProduct={setProduct} idEdit={idEdit}/>
+                        <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Введите объект поиска " className="me-2 col-4 form-control" />   
+                        {/* <Button variant="warning">Поиск</Button>            */}
+                    </div>
+                    
+                </div>
+                <div className='d-flex justify-content-center'>
+                    <span style={{marginRight:'20px'}}>Фильтр по цене</span>
+                    <Box sx={{ width: 300}}>
+                        <Slider
+                            getAriaLabel={() => 'Price change'}
+                            value={price}
+                            min={1}
+                            max={100000}
+                            step={100}
+                            onChange={handleSliderChange}
+                            valueLabelDisplay="auto"
+                            // getAriaValueText={price}
+                        />
+                    </Box>
+                </div>
+            <div>
+                    <ProductsList productToEdit={productToEdit} products={products} />
             </div>
-           <div>
-                <ProductsList productToEdit={productToEdit} products={products} />
-           </div>
-           <div className='d-flex justify-content-center m-2'>
-                <Pagination 
-                count={Number(Math.ceil(+productsTotalCount/+limit))} 
-                page={page} 
-                onChange={handlePaginationChange}
-                color="primary" />
-           </div>
+            <div className='d-flex justify-content-center m-2'>
+                    <Pagination 
+                    count={Number(Math.ceil(+productsTotalCount/+limit))} 
+                    page={page} 
+                    onChange={handlePaginationChange}
+                    color="primary" />
+            </div>
+            </div>
         </div>
     );
 };

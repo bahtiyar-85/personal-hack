@@ -1,13 +1,13 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import fire from "../fire";
 
-export const regContext = createContext();
+export const authContext = createContext();
 
-// export const useAuth = () => {
-//   return useContext(authContext);
-// };
+export const useAuth = () => {
+  return useContext(authContext);
+};
 
-const RegContextProvider = ({ children }) => {
+const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,7 +25,7 @@ const RegContextProvider = ({ children }) => {
     setPasswordError("");
   };
 
-  const handleReg = () => {
+  const handleSignUp = () => {
     clearErrors();
     fire
       .auth()
@@ -66,7 +66,7 @@ const RegContextProvider = ({ children }) => {
     fire.auth().signOut();
   };
 
-  const regListener = () => {
+  const authListener = () => {
     fire.auth().onAuthStateChanged((user) => {
       if (user) {
         clearInputs();
@@ -78,25 +78,25 @@ const RegContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    regListener();
+    authListener();
   }, []);
 
   const values = {
     email,
     user,
-    password,
-    hasAccount,
     handleLogout,
     setEmail,
+    password,
     setPassword,
     handleLogin,
-    handleReg,
+    handleSignUp,
+    hasAccount,
     setHasAccount,
     emailError,
     passwordError,
   };
 
-  return <regContext.Provider value={values}>{children}</regContext.Provider>;
+  return <authContext.Provider value={values}>{children}</authContext.Provider>;
 };
 
-export default RegContextProvider;
+export default AuthContextProvider;
