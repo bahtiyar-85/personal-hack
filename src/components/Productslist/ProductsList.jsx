@@ -1,20 +1,72 @@
-import React, { useContext } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import React, { useContext, useState } from 'react';
+import { Card, Button, Modal } from 'react-bootstrap';
 import { productsContext } from '../../contexts/productsContext';
 import { HiOutlineShoppingCart, HiOutlineTrash, HiOutlinePencil, HiOutlineHeart, HiOutlineChatAlt } from "react-icons/hi";
-import "./ProductsList.css"
+import { TextField } from '@mui/material';
+import Badge from '@mui/material/Badge';
 import { useAuth } from '../../contexts/authContext';
 import { cartContext } from '../../contexts/cartContext';
 import { favorContext } from '../../contexts/favorContext';
+import "./ProductsList.css"
 
 
 const ProductsList = ({productToEdit, products}) => {
-    const { deleteProduct } = useContext(productsContext);
+    const { deleteProduct, updateProducts } = useContext(productsContext);
     const {addProductToCart} = useContext(cartContext);
     const { favor, addProductToFavor} = useContext(favorContext);
     const { user: { email } } = useAuth();
     
-    console.log('favor' ,favor);
+    const [show, setShow] = useState(false);
+    const [product, setProduct] = useState(null);
+    const [textValue, setTextValue] = useState('');
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    function renderCommentToModal(item){
+        handleShow();
+        if(!item.comments){
+            let newProduct = {
+                ...item,
+                comments: [],
+            } 
+            setProduct(newProduct)
+        } else {
+            setProduct(item)
+        }  
+        setTextValue('');
+        product?.comments?.forEach((item)=>{
+            if(email === item[0]) setTextValue(item[1])
+        })  
+        // console.log('Product', product);
+    }
+
+    function addComment(){
+        if(textValue===''){
+             alert('Поле не должно быть пустым!');
+             return;
+        }
+        let comment = [
+            email,
+            textValue
+        ]  
+        // let bool= false;
+        // product.comments.forEach((item)=>{
+        //     if(email === item[0]){
+        //         item[1] = comment; 
+        //         console.log(email, item[0]);
+        //         bool = true;
+        //     }
+        // })
+
+        let newComments = product?.comments?.filter((item)=> email !== item[0])
+        let newProduct = {
+            ...product,
+            comments: newComments
+        }
+        setProduct(newProduct.comments.push(comment));
+        updateProducts(product.id, product);
+        handleClose();
+    }
     return (
         <div  className=' container d-flex flex-wrap justify-content-evenly '>
            {
@@ -32,7 +84,9 @@ const ProductsList = ({productToEdit, products}) => {
                             {email==="bahtiyar@mail.com" ? (
                                 <span onClick={()=>deleteProduct(item.id)} style={{cursor:'pointer'}}><HiOutlineTrash className='icons' size='25px'/></span>
                             ): (null)}    
-                            <HiOutlineChatAlt className='icons' size='25px'/>
+                            {/* <Badge badgeContent={3} color="error"></Badge> */}
+                                 <HiOutlineChatAlt onClick={()=>renderCommentToModal(item)} className='icons' size='25px'/>
+                            
                             <HiOutlineHeart onClick={()=>addProductToFavor(item)} className='icons' size='25px'/>
                             <HiOutlineShoppingCart onClick={()=>addProductToCart(item)} className='icons' size='25px' />
                         </div>
@@ -41,7 +95,39 @@ const ProductsList = ({productToEdit, products}) => {
                 
                ))
            } 
-          
+           <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Комментарии пользователей</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                {product?.comments?.map((item, index)=>(
+                   <div key={index}>
+                    {email === item[0] ? ( null
+                    ) : (
+                            <>
+                            <h6>{item[0]}</h6>
+                            <p>{item[1]}</p>
+                            </>
+                        )}
+                    </div>
+                ))}
+                {email ? (
+                    <>
+                        <TextField
+                        id="outlined-multiline-flexible"
+                        label="Ваш комментарий"
+                        multiline
+                        maxRows={2}
+                        style={{width:'100%'}}
+                        value={textValue}
+                        onChange={(e)=>setTextValue(e.target.value)}
+                          /> 
+                    <Button onClick={()=>addComment()}>Сохранить</Button>
+                    </>
+                ): null }
+               
+                </Modal.Body>  
+            </Modal>
         </div>
     );
 };
