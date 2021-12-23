@@ -4,10 +4,12 @@ import { productsContext } from '../../contexts/productsContext';
 import { HiOutlineShoppingCart, HiOutlineTrash, HiOutlinePencil, HiOutlineHeart, HiOutlineChatAlt } from "react-icons/hi";
 import "./ProductsList.css"
 import { useAuth } from '../../contexts/authContext';
+import { cartContext } from '../../contexts/cartContext';
 
 
 const ProductsList = ({productToEdit, products}) => {
     const { deleteProduct } = useContext(productsContext);
+    const {addProductToCart} = useContext(cartContext);
     const { user: { email } } = useAuth();
     
     console.log('email' ,email);
@@ -23,14 +25,14 @@ const ProductsList = ({productToEdit, products}) => {
                         <Card.Text>{item.price+" сом"}</Card.Text>
                         <div className='d-flex justify-content-evenly'>
                             {email==="bahtiyar@mail.com" ? (
-                                <span onClick={()=>productToEdit(item)} style={{cursor:'pointer'}}><HiOutlinePencil size='25px'/></span>
+                                <span onClick={()=>productToEdit(item)} style={{cursor:'pointer'}}><HiOutlinePencil className='icons' size='25px'/></span>
                                 ) : (null)}
                             {email==="bahtiyar@mail.com" ? (
-                                <span onClick={()=>deleteProduct(item.id)} style={{cursor:'pointer'}}><HiOutlineTrash size='25px'/></span>
+                                <span onClick={()=>deleteProduct(item.id)} style={{cursor:'pointer'}}><HiOutlineTrash className='icons' size='25px'/></span>
                             ): (null)}    
                             <HiOutlineChatAlt className='icons' size='25px'/>
                             <HiOutlineHeart className='icons' size='25px'/>
-                            <HiOutlineShoppingCart className='icons' size='25px' />
+                            <HiOutlineShoppingCart onClick={()=>addProductToCart(item)} className='icons' size='25px' />
                         </div>
                         </Card.Body>
                     </Card>
