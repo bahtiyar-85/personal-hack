@@ -5,14 +5,16 @@ import { HiOutlineShoppingCart, HiOutlineTrash, HiOutlinePencil, HiOutlineHeart,
 import "./ProductsList.css"
 import { useAuth } from '../../contexts/authContext';
 import { cartContext } from '../../contexts/cartContext';
+import { favorContext } from '../../contexts/favorContext';
 
 
 const ProductsList = ({productToEdit, products}) => {
     const { deleteProduct } = useContext(productsContext);
     const {addProductToCart} = useContext(cartContext);
+    const { favor, addProductToFavor} = useContext(favorContext);
     const { user: { email } } = useAuth();
     
-    console.log('email' ,email);
+    console.log('favor' ,favor);
     return (
         <div  className=' container d-flex flex-wrap justify-content-evenly '>
            {
@@ -31,7 +33,7 @@ const ProductsList = ({productToEdit, products}) => {
                                 <span onClick={()=>deleteProduct(item.id)} style={{cursor:'pointer'}}><HiOutlineTrash className='icons' size='25px'/></span>
                             ): (null)}    
                             <HiOutlineChatAlt className='icons' size='25px'/>
-                            <HiOutlineHeart className='icons' size='25px'/>
+                            <HiOutlineHeart onClick={()=>addProductToFavor(item)} className='icons' size='25px'/>
                             <HiOutlineShoppingCart onClick={()=>addProductToCart(item)} className='icons' size='25px' />
                         </div>
                         </Card.Body>

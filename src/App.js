@@ -13,25 +13,28 @@ import Footer from './components/Footer/Footer';
 import Shop from './components/Shop/Shop';
 import Auth from './components/Auth/Auth';
 import Cart from './components/Cart/Cart';
+import FavorContextProvider from './contexts/favorContext';
 
 const App = () => {
   return (
     <div>
       <AuthContextProvider>
         <CartContextProvider>
-          <ProductsContextProvider>
-            <BrowserRouter>
-              <Navibar/>
-              <Header/>
-                <Routes>
-                  <Route path='/' element={<Main/>}/>
-                  <Route path='/shop' element={<Shop/>}/>
-                  <Route path='/auth' element={<Auth/>}/>
-                  <Route path='/cart' element={<Cart/>}/>
-                </Routes>
-              <Footer/>
-            </BrowserRouter>
-          </ProductsContextProvider>
+          <FavorContextProvider>
+            <ProductsContextProvider>
+              <BrowserRouter>
+                <Navibar/>
+                <Header/>
+                  <Routes>
+                    <Route path='/' element={<Main/>}/>
+                    <Route path='/shop' element={<Shop/>}/>
+                    <Route path='/auth' element={<Auth/>}/>
+                    <Route path='/cart' element={<Cart/>}/>
+                  </Routes>
+                <Footer/>
+              </BrowserRouter>
+            </ProductsContextProvider>
+          </FavorContextProvider>
         </CartContextProvider>
       </AuthContextProvider>
     </div>

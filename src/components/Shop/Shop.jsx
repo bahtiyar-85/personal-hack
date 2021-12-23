@@ -1,21 +1,23 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, ListGroup } from 'react-bootstrap';
 import { productsContext } from '../../contexts/productsContext';
 import ModalInput from '../ModalInput/ModalInput';
 import ProductsList from '../Productslist/ProductsList';
 import { Link, useSearchParams } from "react-router-dom";
 import { Box } from '@mui/system';
-import { Slider } from '@mui/material';
+import { Drawer, List, ListItem, ListItemText, Slider } from '@mui/material';
 import Pagination from '@mui/material/Pagination';
-import { HiOutlineShoppingCart, HiOutlineHeart } from "react-icons/hi";
+import { HiOutlineShoppingCart, HiOutlineHeart, HiOutlineTrash } from "react-icons/hi";
 import Badge from '@mui/material/Badge';
 import { cartContext } from '../../contexts/cartContext';
+import { favorContext } from '../../contexts/favorContext';
 
 
 
 const Shop = () => {
     const { getProducts, products, productsTotalCount} = useContext(productsContext)
-    const { getCart, cartLength} = useContext(cartContext);
+    const { getCart, cartLength, addProductToCart} = useContext(cartContext);
+    const { favor, getFavor, favorLength, deleteFromFavor} = useContext(favorContext);
     const [show, setShow] = useState(false);
     const [idEdit, setIdEdit] = useState(null);
     const [product, setProduct] = useState({
@@ -25,7 +27,7 @@ const Shop = () => {
         price:'',
       })
     
-    
+    const [favorState, setFavorState] = useState(false)
     const [searchParams, setSearchParams] = useSearchParams();
     const [search, setSearch] = useState(
         searchParams.get("q") ? searchParams.get("q") : ""
@@ -40,7 +42,9 @@ const Shop = () => {
     const [price, setPrice] = useState([1, 100000]);
 
     useEffect(() => {
-    getProducts()
+    getProducts();
+    getCart();
+    getFavor();
     }, [])
 
     useEffect(() => {
@@ -83,6 +87,10 @@ const Shop = () => {
     const handlePaginationChange = (event, value) => {
         setPage(value);
       };
+
+    const toggleDrawer = (open) => (event) => {
+        setFavorState(open)
+    }
     return (
         <div style={{backgroundColor:'#e9e9e9'}}>
             <div className='container' >
@@ -97,8 +105,8 @@ const Shop = () => {
                                 <HiOutlineShoppingCart className='icons' size='35px' />
                         </Badge>
                        </Link>
-                       <Badge badgeContent={5} color="error" style={{marginLeft:'10px'}}>
-                            <HiOutlineHeart className='icons' size='35px'/>
+                       <Badge badgeContent={favorLength} color="error" style={{marginLeft:'10px'}}>
+                            <HiOutlineHeart onClick={toggleDrawer(true)} className='icons' size='35px'/>
                         </Badge>
                     </div> 
                 </div>
@@ -129,6 +137,25 @@ const Shop = () => {
                     color="primary" />
             </div>
             </div>
+            <Drawer
+                anchor={'right'}
+                open={favorState}
+                onClose={toggleDrawer(false)}
+            >
+                <h3 style={{textAlign:'center'}}>Избранное</h3>
+                <List>
+                   {favor.products?.map((item)=>(
+                       <ListItem>
+                            <HiOutlineShoppingCart style ={{marginRight:'10px'}} onClick={()=>addProductToCart(item.item)} className='icons' size='25px' />    
+                            <HiOutlineTrash style ={{marginRight:'10px'}} onClick={()=>deleteFromFavor(item.item.id)} className='icons' size='25px'/>
+                           <ListGroup>
+                            <ListItemText > {item.item.name}</ListItemText>
+                            <span> {item.item.desc}</span>
+                            </ListGroup>
+                       </ListItem>
+                   ))} 
+                </List>
+            </Drawer>
         </div>
     );
 };
