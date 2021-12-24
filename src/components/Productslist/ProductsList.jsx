@@ -49,22 +49,17 @@ const ProductsList = ({productToEdit, products}) => {
             email,
             textValue
         ]  
-        // let bool= false;
-        // product.comments.forEach((item)=>{
-        //     if(email === item[0]){
-        //         item[1] = comment; 
-        //         console.log(email, item[0]);
-        //         bool = true;
-        //     }
-        // })
-
+      
         let newComments = product?.comments?.filter((item)=> email !== item[0])
+        newComments.push(comment)
         let newProduct = {
             ...product,
             comments: newComments
         }
-        setProduct(newProduct.comments.push(comment));
-        updateProducts(product.id, product);
+        console.log('comment',newComments);
+        console.log('newproduct', newProduct);
+        // setProduct(newProduct);
+        updateProducts(newProduct.id, newProduct);
         handleClose();
     }
     return (
