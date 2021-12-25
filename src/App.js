@@ -3,30 +3,44 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import ProductsContextProvider from './contexts/productsContext';
+import AuthContextProvider from './contexts/authContext';
+import CartContextProvider from './contexts/cartContext';
+import FavorContextProvider from './contexts/favorContext';
 
 import Navibar from './components/Navibar/Navibar';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
 import Shop from './components/Shop/Shop';
-import RegContextProvider from './contexts/regContext';
+import Auth from './components/Auth/Auth';
+import Cart from './components/Cart/Cart';
+import Chat from './components/Chat/Chat';
+import CreditApp from './components/CreditCard/CreditApp'
 
 const App = () => {
   return (
     <div>
-      <RegContextProvider>
-        <ProductsContextProvider>
-          <BrowserRouter>
-            <Navibar/>
-            <Header/>
-              <Routes>
-                <Route path='/' element={<Main/>}/>
-                <Route path='/shop' element={<Shop/>}/>
-              </Routes>
-            <Footer/>
-          </BrowserRouter>
-        </ProductsContextProvider>
-      </RegContextProvider>
+      <AuthContextProvider>
+        <CartContextProvider>
+          <FavorContextProvider>
+            <ProductsContextProvider>
+              <BrowserRouter>
+                <Navibar/>
+                <Header/>
+                  <Routes>
+                    <Route path='/' element={<Main/>}/>
+                    <Route path='/shop' element={<Shop/>}/>
+                    <Route path='/auth' element={<Auth/>}/>
+                    <Route path='/cart' element={<Cart/>}/>
+                    <Route path='/chat' element={<Chat/>}/>
+                    <Route path='/credit' element={<CreditApp/>}/>
+                  </Routes>
+                <Footer/>
+              </BrowserRouter>
+            </ProductsContextProvider>
+          </FavorContextProvider>
+        </CartContextProvider>
+      </AuthContextProvider>
     </div>
   );
 };

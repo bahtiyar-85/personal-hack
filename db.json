@@ -5,56 +5,131 @@
       "desc": "K2 STANDART",
       "url": "https://sportexpert.kg/wp-content/uploads/2021/11/k2-standart-2022-300x300.jpg",
       "price": 29000,
-      "id": 6
+      "id": 6,
+      "comments": [
+        [
+          "bahtiyar@mail.com",
+          "хорошая доска для новичков"
+        ],
+        [
+          "kanat@mail.com",
+          "почему так дорого"
+        ],
+        [
+          "erboshka@mail.com",
+          "hey whats up "
+        ],
+        [
+          "b.ilyazov@gmail.com",
+          "hi guys"
+        ]
+      ]
     },
     {
       "name": "  КРЕПЛЕНИЯ ДЛЯ СНОУБОРДА ",
       "desc": "K2 CINCH TC",
       "url": "https://sportexpert.kg/wp-content/uploads/2017/09/k2-CINCH-TC-black-2022-300x300.jpg",
       "price": 20000,
-      "id": 7
+      "id": 7,
+      "comments": [
+        [
+          "bahtiyar@mail.com",
+          "крутяяяяяк"
+        ],
+        [
+          "kanat@mail.com",
+          "почему так дорого"
+        ],
+        [
+          "erboshka@mail.com",
+          "hey whats up "
+        ],
+        [
+          "b.ilyazov@gmail.com",
+          "hi guys"
+        ]
+      ]
     },
     {
       "name": "  КРЕПЛЕНИЯ ДЛЯ СНОУБОРДА ",
       "desc": "K2 INDY",
       "url": "https://sportexpert.kg/wp-content/uploads/2017/09/k2-indy-black-2022-300x300.jpg",
       "price": 19000,
-      "id": 8
+      "id": 8,
+      "comments": [
+        [
+          "erboshka@mail.com",
+          "hi hi hi good luck"
+        ]
+      ]
     },
     {
       "name": "  БОТИНКИ ДЛЯ СНОУБОРДА ",
       "desc": "K2 LEWISTON",
       "url": "https://sportexpert.kg/wp-content/uploads/2021/11/k2-LEWISTON-vert-2022-300x300.jpg",
       "price": 15000,
-      "id": 9
+      "id": 9,
+      "comments": [
+        [
+          "kanat@mail.com",
+          "почему так дорого"
+        ]
+      ]
     },
     {
       "name": "  РЮКЗАК ",
       "desc": "BCA STASH 20",
       "url": "https://sportexpert.kg/wp-content/uploads/2021/12/BCA-STASH-20-kingfisher-green-2022-300x300.jpg",
       "price": 5000,
-      "id": 10
+      "id": 10,
+      "comments": [
+        [
+          "kanat@mail.com",
+          "почему так дорого"
+        ],
+        [
+          "b.ilyazov@gmail.com",
+          "hello"
+        ]
+      ]
     },
     {
       "name": "  ГОРНОЛЫЖНАЯ МАСКА ",
       "desc": "JULBO AEROSPACE S2-3",
       "url": "https://sportexpert.kg/wp-content/uploads/2021/12/JULBO-AEROSPACE-noir-vert-2022-300x300.jpg",
       "price": 3000,
-      "id": 11
+      "id": 11,
+      "comments": [
+        [
+          "kanat@mail.com",
+          "почему так дорого"
+        ]
+      ]
     },
     {
       "name": "  ГОРНОЛЫЖНЫЙ ШЛЕМ",
       "desc": " JULBO BLADE",
       "url": "https://sportexpert.kg/wp-content/uploads/2021/12/JULBO-BLADE-grey-gris-2022-300x300.jpg",
       "price": 5000,
-      "id": 12
+      "id": 12,
+      "comments": [
+        [
+          "kanat@mail.com",
+          "почему так дорого"
+        ],
+        [
+          "erboshka@mail.com",
+          "привет"
+        ]
+      ]
     },
     {
       "name": "  ГОРНОЛЫЖНЫЙ ШЛЕМ ",
       "desc": "JULBO PROMETHEE",
       "url": "https://sportexpert.kg/wp-content/uploads/2021/12/JULBO-PROMETHEE-SKI-HELMET-black-red-2022-300x300.jpg",
       "price": 8000,
-      "id": 13
+      "id": 13,
+      "comments": []
     },
     {
       "name": "  ГОРНЫЕ ЛЫЖИ ",
@@ -96,7 +171,13 @@
       "desc": "K2 RECKONER 112",
       "url": "https://sportexpert.kg/wp-content/uploads/2021/11/k2-reckoner-112-2022-300x300.jpg",
       "price": 50000,
-      "id": 19
+      "id": 19,
+      "comments": [
+        [
+          "erboshka@mail.com",
+          "hello"
+        ]
+      ]
     },
     {
       "name": "  ЛЫЖНЫЕ ПАЛКИ ",
@@ -152,14 +233,13 @@
       "desc": "MAIER DAMMKAR W PANT",
       "url": "https://sportexpert.kg/wp-content/uploads/2018/12/94382815A_maier_dammkar_hose_damen_skydiver-300x300.jpg",
       "price": 12000,
-      "id": 27
-    },
-    {
-      "name": "dfgdfgdf",
-      "desc": "tetert",
-      "url": "egdgfdfg",
-      "price": 12345,
-      "id": 29
+      "id": 27,
+      "comments": [
+        [
+          "b.ilyazov@gmail.com",
+          "вот это да круто"
+        ]
+      ]
     }
   ]
 }
