@@ -11,7 +11,7 @@ import "./ProductsList.css"
 
 
 const ProductsList = ({productToEdit, products}) => {
-    const { deleteProduct, updateProducts } = useContext(productsContext);
+    const { deleteProduct, updateProducts, getProducts } = useContext(productsContext);
     const {addProductToCart} = useContext(cartContext);
     const { favor, addProductToFavor} = useContext(favorContext);
     const { user: { email } } = useAuth();
@@ -60,6 +60,7 @@ const ProductsList = ({productToEdit, products}) => {
         console.log('newproduct', newProduct);
         // setProduct(newProduct);
         updateProducts(newProduct.id, newProduct);
+        
         handleClose();
     }
     return (

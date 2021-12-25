@@ -12,6 +12,8 @@ import Badge from '@mui/material/Badge';
 import { cartContext } from '../../contexts/cartContext';
 import { favorContext } from '../../contexts/favorContext';
 import { useAuth } from '../../contexts/authContext';
+import "./Shop.css"
+
 
 
 
@@ -96,12 +98,12 @@ const Shop = () => {
     return (
         <div style={{backgroundColor:'#e9e9e9'}}>
             <div className='container' >
-                <div className='d-flex justify-content-around'>
-                    <div className='d-flex justify-content-center align-items-center m-2' style={{width: '50vw'}}>
+                <div className='d-flex justify-content-between shop-items'>
+                    <div className='d-flex justify-content-center align-items-center m-2 shop-items-input'>
                         <ModalInput show={show} handleClose={handleClose} handleShow={handleShow} product={product} setProduct={setProduct} idEdit={idEdit}/>
-                        <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Введите объект поиска " className="me-2 col-4 form-control" />   
+                        <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Введите объект поиска " className="me-2 col-3 form-control" />   
                     </div>
-                    <div className='d-flex align-items-center'>
+                    <div className='d-flex align-items-center justify-content-end shop-items-icons'>
                         <Link to='/cart'>
                             <Badge badgeContent={cartLength} color="error">
                                 <HiOutlineShoppingCart className='icons' size='35px' />

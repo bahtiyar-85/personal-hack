@@ -44,7 +44,7 @@ const ModalInput = ({show, handleClose, handleShow, product, setProduct, idEdit}
     return (
         <div>
              {email==='b.ilyazov@gmail.com' ? (
-                 <Button onClick = {showModal} className='btn btn-success'>Добавить</Button>
+                 <Button onClick = {showModal} className='btn btn-success btn-input__margin' >Добавить</Button>
              ): null }
              <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
