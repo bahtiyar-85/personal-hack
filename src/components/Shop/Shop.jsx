@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, ListGroup } from 'react-bootstrap';
+import { ListGroup } from 'react-bootstrap';
 import { productsContext } from '../../contexts/productsContext';
 import ModalInput from '../ModalInput/ModalInput';
 import ProductsList from '../Productslist/ProductsList';
@@ -7,14 +7,16 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Box } from '@mui/system';
 import { Drawer, List, ListItem, ListItemText, Slider } from '@mui/material';
 import Pagination from '@mui/material/Pagination';
-import { HiOutlineShoppingCart, HiOutlineHeart, HiOutlineTrash } from "react-icons/hi";
+import { HiOutlineShoppingCart, HiOutlineHeart, HiOutlineTrash, HiChatAlt2 } from "react-icons/hi";
 import Badge from '@mui/material/Badge';
 import { cartContext } from '../../contexts/cartContext';
 import { favorContext } from '../../contexts/favorContext';
+import { useAuth } from '../../contexts/authContext';
 
 
 
 const Shop = () => {
+    const { user: { email } } = useAuth();
     const { getProducts, products, productsTotalCount} = useContext(productsContext)
     const { getCart, cartLength, addProductToCart} = useContext(cartContext);
     const { favor, getFavor, favorLength, deleteFromFavor} = useContext(favorContext);
@@ -108,6 +110,11 @@ const Shop = () => {
                        <Badge badgeContent={favorLength} color="error" style={{marginLeft:'10px'}}>
                             <HiOutlineHeart onClick={toggleDrawer(true)} className='icons' size='35px'/>
                         </Badge>
+                        { email ?(
+                             <Link to="/chat">
+                                <HiChatAlt2 className='icons' size='35px' style={{marginLeft:'10px'}}/>
+                             </Link>
+                        ): null}
                     </div> 
                 </div>
 
@@ -145,7 +152,7 @@ const Shop = () => {
                 <h3 style={{textAlign:'center'}}>Избранное</h3>
                 <List>
                    {favor.products?.map((item)=>(
-                       <ListItem>
+                       <ListItem key={item.item.id}>
                             <HiOutlineShoppingCart style ={{marginRight:'10px'}} onClick={()=>addProductToCart(item.item)} className='icons' size='25px' />    
                             <HiOutlineTrash style ={{marginRight:'10px'}} onClick={()=>deleteFromFavor(item.item.id)} className='icons' size='25px'/>
                            <ListGroup>
