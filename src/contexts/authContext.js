@@ -1,13 +1,31 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import fire from "../fire";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+import {googleAcc} from "../fire";
 
-export const regContext = createContext();
+export const authContext = createContext();
 
-// export const useAuth = () => {
-//   return useContext(authContext);
-// };
+export const useAuth = () => {
+  return useContext(authContext);
+};
 
-const RegContextProvider = ({ children }) => {
+
+const INIT_STATE = {
+  googleUser: null,
+};
+const reducer = (state = INIT_STATE, action) => {
+  switch (action.type) {
+      case "SET_USER":
+          return {...state, googleUser: action.payload};
+          default:
+              return state;
+  }
+}
+
+const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,7 +43,16 @@ const RegContextProvider = ({ children }) => {
     setPasswordError("");
   };
 
-  const handleReg = () => {
+  const googleProvider = new GoogleAuthProvider();
+  const authWithGoogle = async () => {
+      try {
+          await signInWithPopup(googleAcc, googleProvider);
+      }catch(e){
+          console.log(e);
+      }
+  };
+
+  const handleSignUp = () => {
     clearErrors();
     fire
       .auth()
@@ -66,7 +93,7 @@ const RegContextProvider = ({ children }) => {
     fire.auth().signOut();
   };
 
-  const regListener = () => {
+  const authListener = () => {
     fire.auth().onAuthStateChanged((user) => {
       if (user) {
         clearInputs();
@@ -78,25 +105,26 @@ const RegContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    regListener();
+    authListener();
   }, []);
 
   const values = {
     email,
     user,
-    password,
-    hasAccount,
     handleLogout,
     setEmail,
+    password,
     setPassword,
     handleLogin,
-    handleReg,
+    handleSignUp,
+    hasAccount,
     setHasAccount,
     emailError,
     passwordError,
+    authWithGoogle,
   };
 
-  return <regContext.Provider value={values}>{children}</regContext.Provider>;
+  return <authContext.Provider value={values}>{children}</authContext.Provider>;
 };
 
-export default RegContextProvider;
+export default AuthContextProvider;

@@ -1,38 +1,17 @@
 
-import React, { useContext, useState } from 'react';
-import { Link, Router } from 'react-router-dom';
-import { Container, Navbar, Button, Nav, Modal, Form } from 'react-bootstrap';
-import { regContext } from '../../contexts/regContext';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Container, Navbar, Nav } from 'react-bootstrap';
+import { useAuth } from '../../contexts/authContext';
+
 
 
 const Navibar = () => {
     const {
-        email,
-        setEmail,
-        password,
-        setPassword,
-        handleLogin,
-        handleReg,
-        hasAccount,
-        setHasAccount,
-        emailError,
-        passwordError,
-      } = useContext(regContext);
-
-    const [showModal, setShowModal] = useState(true);
-    const handleCloseModal = () => setShowModal(false);
-    const handleShowModal = () => setShowModal(true);
-    const [regModal, setRegModal] = useState(false);
-    
-    function clickReg(){
-        handleShowModal();
-        setRegModal(true);
-    }
-    function clickLogin(){
-        handleShowModal();
-        setRegModal(false);
-    }
-
+        handleLogout,
+        user: { email },
+      } = useAuth();
+   
     return (
 
         <div>
@@ -50,32 +29,24 @@ const Navibar = () => {
                     </Nav>
                     
                     <Nav>
-                        {/* <h4 style={{color: 'white'}}>{email}</h4> */}
-                        <Button onClick ={clickLogin}  autoFocus variant='primary' className='m-2' >Войти</Button>
-                        <Button onClick ={clickReg}  autoFocus variant='primary' className='m-2' >Регистрация</Button>
+                        {email ? (
+                                <Link to="/auth">
+                                <button className="btn btn-primary" onClick={handleLogout}>
+                                    Выйти
+                                </button>
+                                </Link>
+                            ) : null}
+                        {email ? null : (
+                            <Link to="/auth">
+                            <button className="btn btn-primary">Войти</button>
+                            </Link>
+                        )}
+                       
                     </Nav>
                 </Navbar.Collapse>
                 </Container>
             </Navbar>
 
-            <Modal show={showModal} onHide={handleCloseModal}>
-                <Modal.Header closeButton>
-                    <Modal.Title>{regModal ? 'Регистрация' : 'Введиде логин и пароль'}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form>
-                        <input value={email} type='text' onChange={(e) => setEmail(e.target.value)} className='form-control' placeholder='Введите почту' ></input>
-                        <p>{emailError}</p>
-                        <input value={password} type='password' onChange={(e) => setPassword(e.target.value)} className='form-control' placeholder='Введите пароль'></input>
-                        <p>{passwordError}</p>
-                        {regModal ? (
-                            <Button onClick={handleReg} className='btn btn-success m-3'>Создать профиль</Button> 
-                        ) : (
-                            <Button onClick={handleLogin} className='btn btn-success m-3'>Войти</Button>
-                        )}
-                    </Form>
-                </Modal.Body>  
-            </Modal>
         </div>
     );
 };
