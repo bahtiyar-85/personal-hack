@@ -16,18 +16,18 @@ const Cart = () => {
         <div className='cart'>
             <div className='container'>
                 
-                {cart.products?.map((item)=>(
-                    <div className='row cart-item'>
-                        <div className="col">{item.item.name}</div>
-                        <div className="col">{item.item.desc}</div>
-                        <div className="col">{item.item.price+" сом"}</div>
-                        <div className="col-1 align-items-center">
+                {cart.products?.map((item, index)=>(
+                    <div key={index} className='row cart-item ' >
+                        <div className="col-6 col-md-2">{item.item.name}</div>
+                        <div className="col-6 col-md-2">{item.item.desc}</div>
+                        <div className="col-4 col-md-2">{item.item.price+" сом"}</div>
+                        <div className="col-3 col-md-2 align-items-center">
                             <HiOutlineMinusCircle onClick={()=>changeProductCount(item.count-1, item.item.id)}  className='icons' size='25px'/>
                             <span className='h5'>{item.count}</span>
                             <HiOutlinePlusCircle onClick={()=>changeProductCount(item.count+1, item.item.id)}  className='icons' size='25px'/>
                         </div>
-                        <div className="col">{roundN(item.subPrice)+" сом"}</div>
-                        <div className="col-1"><HiOutlineTrash onClick={()=>deleteFromCart(item.item.id)} className='icons' size='25px'/></div>
+                        <div className="col-4 col-md-2">{roundN(item.subPrice)+" сом"}</div>
+                        <div className="col-1 col-md-2"><HiOutlineTrash onClick={()=>deleteFromCart(item.item.id)} className='icons' size='25px'/></div>
                         
                     </div>
                 ))}

@@ -23,3 +23,28 @@
     margin-bottom: 0;
     text-align: right;
 }
+
+
+@media (max-width: 770px){
+    .footer-info {
+        padding-right: 0;
+    }
+    .footer-icons {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 500px){
+    .footer img {
+        width: 30px;
+        height: 30px;
+        margin: 3%;
+    }  
+    .footer-icons {
+        width: 30%;
+     }
+    .footer-info{
+        width: 70%;
+    }
+
+}
