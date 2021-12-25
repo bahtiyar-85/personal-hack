@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ProductsContextProvider from './contexts/productsContext';
 import AuthContextProvider from './contexts/authContext';
 import CartContextProvider from './contexts/cartContext';
+import FavorContextProvider from './contexts/favorContext';
 
 import Navibar from './components/Navibar/Navibar';
 import Header from './components/Header/Header';
@@ -13,8 +14,8 @@ import Footer from './components/Footer/Footer';
 import Shop from './components/Shop/Shop';
 import Auth from './components/Auth/Auth';
 import Cart from './components/Cart/Cart';
-import FavorContextProvider from './contexts/favorContext';
 import Chat from './components/Chat/Chat';
+import CreditApp from './components/CreditCard/CreditApp'
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
                     <Route path='/auth' element={<Auth/>}/>
                     <Route path='/cart' element={<Cart/>}/>
                     <Route path='/chat' element={<Chat/>}/>
+                    <Route path='/credit' element={<CreditApp/>}/>
                   </Routes>
                 <Footer/>
               </BrowserRouter>

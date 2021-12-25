@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { cartContext } from '../../contexts/cartContext';
 import { HiOutlineTrash, HiOutlinePlusCircle, HiOutlineMinusCircle } from "react-icons/hi";
+import { Link } from "react-router-dom";
 import { roundN } from "../../helpers/calcPrice";
 import "./Cart.css"
 
@@ -33,7 +34,7 @@ const Cart = () => {
                 ))}
                 <div >
                 <h4>{"Итого: "+ roundN(cart.totalPrice)+ " сом"}</h4>
-                <button className='btn btn-primary mb-4'>Оплатить</button>
+                <Link to="/credit"><button className='btn btn-primary mb-4'>Оплатить</button></Link>
                 </div>
             </div>
         </div>
