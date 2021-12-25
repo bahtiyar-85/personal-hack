@@ -18,6 +18,9 @@ const ModalInput = ({show, handleClose, handleShow, product, setProduct, idEdit}
     }
 
     function addProduct(){
+        if(typeof(product.price)==="string"){
+            product.price = Number(product.price)
+        }
         createProduct(product);
         handleClose(false);
     }
@@ -29,7 +32,7 @@ const ModalInput = ({show, handleClose, handleShow, product, setProduct, idEdit}
             name:'',
             desc:'',
             url:'',
-            price:'',
+            price: 0,
           })
     }
     function showModal(){
@@ -38,7 +41,7 @@ const ModalInput = ({show, handleClose, handleShow, product, setProduct, idEdit}
             name:'',
             desc:'',
             url:'',
-            price:'',
+            price: 0,
           }) 
     }
     return (
@@ -59,7 +62,7 @@ const ModalInput = ({show, handleClose, handleShow, product, setProduct, idEdit}
                         <br/>
                         <input value={product.url} type='text' onChange={handleValues} className='form-control' placeholder='URL' name='url'></input>
                         <br/>
-                        <input value={product.price} type='number' onChange={handleValues} className='form-control' placeholder='Цена' name='price'></input>
+                        <input value={+product.price} type='number' onChange={handleValues} className='form-control' placeholder='Цена' name='price'></input>
                         <Button onClick={()=>addProduct()} className='btn btn-success m-3'>Создать</Button>
                         <Button onClick={editProduct} className='btn btn-success m-3'>Изменить</Button>
                     </Form>
