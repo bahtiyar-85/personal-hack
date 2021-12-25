@@ -14,6 +14,7 @@ const Login = () => {
     setHasAccount,
     emailError,
     passwordError,
+    authWithGoogle,
   } = useAuth();
   return (
     <>
@@ -66,6 +67,7 @@ const Login = () => {
                 <button className="auth-btn" onClick={handleSignUp}>
                   Создать профиль
                 </button>
+                <button className="auth-google" onClick={authWithGoogle}>Регистрация через Google</button>
                 <p className="auth-text">
                   У вас уже есть аккаунт
                   <span

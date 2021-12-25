@@ -39,7 +39,7 @@ const ProductsList = ({productToEdit, products}) => {
         })  
         // console.log('Product', product);
     }
-
+    console.log(Date.now());
     function addComment(){
         if(textValue===''){
              alert('Поле не должно быть пустым!');
@@ -73,10 +73,10 @@ const ProductsList = ({productToEdit, products}) => {
                         <Card.Text>{item.desc}</Card.Text>
                         <Card.Text>{item.price+" сом"}</Card.Text>
                         <div className='d-flex justify-content-evenly'>
-                            {email==="bahtiyar@mail.com" ? (
+                            {email==="b.ilyazov@gmail.com" ? (
                                 <span onClick={()=>productToEdit(item)} style={{cursor:'pointer'}}><HiOutlinePencil className='icons' size='25px'/></span>
                                 ) : (null)}
-                            {email==="bahtiyar@mail.com" ? (
+                            {email==="b.ilyazov@gmail.com" ? (
                                 <span onClick={()=>deleteProduct(item.id)} style={{cursor:'pointer'}}><HiOutlineTrash className='icons' size='25px'/></span>
                             ): (null)}    
                             {/* <Badge badgeContent={3} color="error"></Badge> */}

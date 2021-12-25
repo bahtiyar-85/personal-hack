@@ -43,7 +43,7 @@ const ModalInput = ({show, handleClose, handleShow, product, setProduct, idEdit}
     }
     return (
         <div>
-             {email==='bahtiyar@mail.com' ? (
+             {email==='b.ilyazov@gmail.com' ? (
                  <Button onClick = {showModal} className='btn btn-success'>Добавить</Button>
              ): null }
              <Modal show={show} onHide={handleClose}>
