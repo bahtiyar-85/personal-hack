@@ -14,6 +14,7 @@ import Shop from './components/Shop/Shop';
 import Auth from './components/Auth/Auth';
 import Cart from './components/Cart/Cart';
 import FavorContextProvider from './contexts/favorContext';
+import Chat from './components/Chat/Chat';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
                     <Route path='/shop' element={<Shop/>}/>
                     <Route path='/auth' element={<Auth/>}/>
                     <Route path='/cart' element={<Cart/>}/>
+                    <Route path='/chat' element={<Chat/>}/>
                   </Routes>
                 <Footer/>
               </BrowserRouter>

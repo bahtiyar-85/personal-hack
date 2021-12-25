@@ -25,7 +25,7 @@ const Navibar = () => {
                    <Nav className='me-auto'>
                         <Nav.Link><Link to ="/"> Главная</Link></Nav.Link>
                         <Nav.Link><Link to ="/shop">Магазин</Link></Nav.Link>
-                        <Nav.Link><Link to='/'>About</Link></Nav.Link>
+                        {/* <Nav.Link><Link to='/'>About</Link></Nav.Link> */}
                     </Nav>
                     
                     <Nav>

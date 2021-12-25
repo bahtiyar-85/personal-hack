@@ -39,7 +39,7 @@ const ProductsList = ({productToEdit, products}) => {
         })  
         // console.log('Product', product);
     }
-    console.log(Date.now());
+    
     function addComment(){
         if(textValue===''){
              alert('Поле не должно быть пустым!');
